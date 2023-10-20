@@ -1,0 +1,7 @@
+def rr(n, k):
+    if n <= 2:
+        return 1
+    else:
+        return rr(n-1, k) + rr(n-2, k)*k
+    
+print(rr(10,2))
