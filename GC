@@ -1,0 +1,21 @@
+from collections import Counter
+hgc = 0
+
+with open(r"C:\Users\rifak\Downloads\rosalind_gc.txt") as seq:
+    c = seq.readlines()
+    for x, l in enumerate(c):
+        if l.startswith('>'):
+            id = l[1:]
+            seq = ''
+        else:
+            seq2=l.strip()
+            seq=seq+seq2
+            if x==(len(c)-1) or (c[x+1].startswith('>')):
+                seqc=Counter(seq)
+                gc=100*(seqc['G']+seqc['C'])/len(seq)
+                if gc > hgc:
+                    hgc = gc
+                    ID = id
+                    
+print(ID, end='')
+print(hgc)
