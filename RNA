@@ -1,1 +1,5 @@
+# 
 
+dna= input()
+t = dna.upper()
+print(t.replace('T','U'))
