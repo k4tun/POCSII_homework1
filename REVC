@@ -1,0 +1,17 @@
+dna=input()
+dna = dna.upper()
+
+dna_c = " "
+for x in dna:
+    if x == "A":
+        dna_c = dna_c + "T"
+    elif x == "C":
+        dna_c = dna_c + "G"
+    elif x == "G":
+        dna_c = dna_c + "C"
+    elif x == "T":            
+        dna_c = dna_c + "A"
+    else:
+        continue
+
+print(dna_c[::-1])
