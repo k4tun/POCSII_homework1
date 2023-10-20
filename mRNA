@@ -1,0 +1,34 @@
+def mrna(protein):
+    codons = {'*': ['UAA', 'UAG', 'UGA'],
+            'F': ['UUU', 'UUC'],
+            'L': ['UUA', 'UUG', 'CUU', 'CUC', 'CUA', 'CUG'],
+            'S': ['UCU', 'UCC', 'UCA', 'UCG', 'AGU', 'AGC'],
+            'Y': ['UAU', 'UAC'],
+            'C': ['UGU', 'UGC'],
+            'W': ['UGG'],
+            'P': ['CCU', 'CCC', 'CCA', 'CCG'],
+            'H': ['CAU', 'CAC'],
+            'Q': ['CAA', 'CAG'],
+            'R': ['CGU', 'CGC', 'CGA', 'CGG', 'AGA', 'AGG'],
+            'V': ['GUU', 'GUC', 'GUA', 'GUG'],
+            'A': ['GCU', 'GCC', 'GCA', 'GCG'],
+            'D': ['GAU', 'GAC'],
+            'E': ['GAA', 'GAG'],
+            'G': ['GGU', 'GGC', 'GGA', 'GGG'],
+            'I': ['AUU', 'AUC', 'AUA'],
+            'M': ['AUG'],
+            'T': ['ACU', 'ACC', 'ACA', 'ACG'],
+            'N': ['AAU', 'AAC'],
+            'K': ['AAA', 'AAG']}
+    n = 1
+    for aa in protein:
+        n = n * len(codons[aa])
+    n = n*len(codons["*"])
+    return n % 1000000
+
+
+if __name__ == "__main__":
+    with open(r"C:\Users\rifak\Downloads\rosalind_mrna.txt") as f:
+        protein = f.readline().strip()
+        n = mrna(protein)
+        print(n)
