@@ -1,0 +1,20 @@
+from Bio import SeqIO
+
+transi = [('A', 'G'), ('T', 'C'), ('C', 'T'), ('G', 'A')]
+transv = [('A', 'T'), ('A', 'C'), ('T', 'A'), ('T', 'G'), ('C', 'A'), ('C', 'G'), ('G', 'T'), ('G', 'C')]
+
+seq_name, seq_string = [], []
+with open (r"C:\Users\rifak\Downloads\rosalind_tran.txt") as fa:
+    for seq_record  in SeqIO.parse(fa,'fasta'):
+        seq_name.append(seq_record.name)
+        seq_string.append(seq_record.seq)
+
+transi_count, transv_count = 0, 0
+s1, s2 = seq_string
+
+for i in range(len(s1)):
+    if (s1[i], s2[i]) in transi:
+        transi_count += 1
+    if (s1[i], s2[i]) in transv:
+        transv_count += 1
+print(transi_count/transv_count)
